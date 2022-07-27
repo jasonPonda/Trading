@@ -1,14 +1,14 @@
-﻿using TradingApp.Models;
+﻿using Trading.Models;
 
-namespace TradingApp.Interface
+namespace Trading.Interface
 {
     public interface IProfiles
     {
-        public List<Profile> GetProfiles();
-        public Profile GetProfiles(int id);
-        public void AddProfile(Profile profile);
-        public void UpdateProfile(Profile profile);
-        public Profile DeleteProfile(int id);
+        public List<ProfileModel> GetProfiles();
+        public ProfileModel GetProfiles(int id);
+        public void AddProfile(ProfileModel profile);
+        public void UpdateProfile(ProfileModel profile);
+        public ProfileModel DeleteProfile(int id);
         public bool CheckProfile(int id);
 
     }

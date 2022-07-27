@@ -1,8 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
-namespace TradingApp.Models
+namespace Trading.Models
 {
-    public partial class DatabaseContext : DbContext
+    public partial class DatabaseContext : IdentityDbContext<IdentityUser>
     {
         public DatabaseContext()
         {
@@ -13,21 +15,34 @@ namespace TradingApp.Models
         {
         }
 
-        public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Profile> Profiles { get; set; }
+        private DbSet<UserModel> users = null!;
+
+        public virtual DbSet<UserModel> GetUsers()
+        {
+            return users;
+        }
+
+        public virtual void SetUsers(DbSet<UserModel> value)
+        {
+            users = value;
+        }
+
+        public virtual DbSet<ProfileModel> Profiles { get; set; } = null!;
+        public virtual DbSet<TradeModel> Trades { get; set; } = null!;
+        public virtual DbSet<WireModel> Wires { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>(entity =>
+            modelBuilder.Entity<UserModel>(entity =>
             {
                 entity.HasNoKey();
                 entity.ToTable("User");
                 entity.Property(e => e.Id).HasColumnName("id");
-                entity.Property(e => e.email).HasColumnName("email");
-                entity.Property(e => e.password).HasColumnName("password");
+                entity.Property(e => e.Email).HasColumnName("email");
+                entity.Property(e => e.Password).HasColumnName("password");
             });
 
-            modelBuilder.Entity<Profile>(entity =>
+            modelBuilder.Entity<ProfileModel>(entity =>
             {
                 entity.ToTable("Profile");
                 entity.Property(e => e.Id).HasColumnName("id");
@@ -37,7 +52,7 @@ namespace TradingApp.Models
                 entity.Property(e => e.Address).HasColumnName("address");
             });
 
-            modelBuilder.Entity<Trade>(entity =>
+            modelBuilder.Entity<TradeModel>(entity =>
             {
                 entity.ToTable("Trade");
                 entity.Property(e => e.Id).HasColumnName("id");
@@ -51,7 +66,7 @@ namespace TradingApp.Models
                 entity.Property(e => e.Open).HasColumnName("open");
             });
 
-            modelBuilder.Entity<Wire>(entity =>
+            modelBuilder.Entity<WireModel>(entity =>
             {
                 entity.ToTable("Wire");
                 entity.Property(e => e.Id).HasColumnName("id");

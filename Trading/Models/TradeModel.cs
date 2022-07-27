@@ -1,7 +1,8 @@
-﻿namespace TradingApp.Models
+﻿namespace Trading.Models
 {
-    public class Trade
+    public class TradeModel
     {
+
         public int Id { get; set; }
         public int Profile_id { get; set; }
         public string? Symbol { get; set; }

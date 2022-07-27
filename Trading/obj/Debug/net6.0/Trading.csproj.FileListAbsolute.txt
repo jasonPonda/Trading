@@ -63,3 +63,9 @@ C:\Users\Media Markt\source\repos\Trading\Trading\obj\Debug\net6.0\refint\Tradin
 C:\Users\Media Markt\source\repos\Trading\Trading\obj\Debug\net6.0\Trading.pdb
 C:\Users\Media Markt\source\repos\Trading\Trading\obj\Debug\net6.0\Trading.genruntimeconfig.cache
 C:\Users\Media Markt\source\repos\Trading\Trading\obj\Debug\net6.0\ref\Trading.dll
+C:\Users\Media Markt\source\repos\Trading\Trading\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Media Markt\source\repos\Trading\Trading\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Media Markt\source\repos\Trading\Trading\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Media Markt\source\repos\Trading\Trading\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\Media Markt\source\repos\Trading\Trading\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Media Markt\source\repos\Trading\Trading\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll

@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
-using TradingApp.Models;
+using Trading.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -7,7 +7,7 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Mvc;
 
-namespace TradingApp.Controllers
+namespace Trading.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -23,7 +23,7 @@ namespace TradingApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(User _userData)
+        public async Task<IActionResult> Post(UserModel _userData)
         {
             if (_userData != null && _userData.Email != null && _userData.Password != null)
             {
@@ -64,10 +64,10 @@ namespace TradingApp.Controllers
             }
         }
 
-        private async Task<User> GetUser(string email, string password)
+        private async Task<UserModel> GetUser(string email, string password)
         {
 #pragma warning disable CS8603 // Existence possible d'un retour de référence null.
-            return await _context.Users.FirstOrDefaultAsync(u => u.Email == email && u.Password == password);
+            return await _context.GetUsers().FirstOrDefaultAsync(u => u.Email == email && u.Password == password);
 #pragma warning restore CS8603 // Existence possible d'un retour de référence null.
         }
     }

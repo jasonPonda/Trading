@@ -1,5 +1,5 @@
-﻿using TradingApp.Interface;
-using TradingApp.Models;
+﻿using Trading.Interface;
+using Trading.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -19,14 +19,14 @@ namespace TradingApp.Controllers
 
         //GET: api/profile>
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Profile>>> Get()
+        public async Task<ActionResult<IEnumerable<ProfileModel>>> Get()
         {
             return await Task.FromResult(_IProfile.GetProfiles());
         }
 
         // GET api/profile/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Profile>> Get(int id)
+        public async Task<ActionResult<ProfileModel>> Get(int id)
         {
             var profiles = await Task.FromResult(_IProfile.GetProfiles(id));
             if (profiles == null)
@@ -38,7 +38,7 @@ namespace TradingApp.Controllers
 
         // POST api/profile
         [HttpPost]
-        public async Task<ActionResult<Profile>> Post(Profile profile)
+        public async Task<ActionResult<ProfileModel>> Post(ProfileModel profile)
         {
             _IProfile.AddProfile(profile);
             return await Task.FromResult(profile);
@@ -46,7 +46,7 @@ namespace TradingApp.Controllers
 
         // PUT api/profile/5
         [HttpPut("{id}")]
-        public async Task<ActionResult<Profile>> Put(int id, Profile profile)
+        public async Task<ActionResult<ProfileModel>> Put(int id, ProfileModel profile)
         {
             if (id != profile.Id)
             {
@@ -72,7 +72,7 @@ namespace TradingApp.Controllers
 
         // DELETE api/profile/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Profile>> Delete(int id)
+        public async Task<ActionResult<ProfileModel>> Delete(int id)
         {
             var profile = _IProfile.DeleteProfile(id);
             return await Task.FromResult(profile);

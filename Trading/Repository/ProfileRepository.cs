@@ -1,8 +1,8 @@
-﻿using TradingApp.Interface;
-using TradingApp.Models;
+﻿using Trading.Interface;
+using Trading.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace TradingApp.Repository
+namespace Trading.Repository
 {
     public class ProfileRepository : IProfiles
     {
@@ -13,7 +13,7 @@ namespace TradingApp.Repository
             _dbContext = dbContext;
         }
 
-        public List<Profile> GetProfiles()
+        public List<ProfileModel> GetProfiles()
         {
             try
             {
@@ -25,11 +25,11 @@ namespace TradingApp.Repository
             }
         }
 
-        public Profile GetProfiles(int id)
+        public ProfileModel GetProfiles(int id)
         {
             try
             {
-                Profile? profile = _dbContext.Profiles.Find(id);
+                ProfileModel? profile = _dbContext.Profiles.Find(id);
                 if (profile != null)
                 {
                     return profile;
@@ -45,7 +45,7 @@ namespace TradingApp.Repository
             }
         }
 
-        public void AddProfile(Profile profile)
+        public void AddProfile(ProfileModel profile)
         {
             try
             {
@@ -58,7 +58,7 @@ namespace TradingApp.Repository
             }
         }
 
-        public void UpdateProfile(Profile profile)
+        public void UpdateProfile(ProfileModel profile)
         {
             try
             {
@@ -71,11 +71,11 @@ namespace TradingApp.Repository
             }
         }
 
-        public Profile DeleteProfile(int id)
+        public ProfileModel DeleteProfile(int id)
         {
             try
             {
-                Profile? profile = _dbContext.Profiles.Find(id);
+                ProfileModel? profile = _dbContext.Profiles.Find(id);
 
                 if (profile != null)
                 {

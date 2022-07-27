@@ -1,7 +1,8 @@
-﻿namespace TradingApp.Models
+﻿namespace Trading.Models
 {
-    public class Wire
+    public class WireModel
     {
+
         public int Id { get; set; }
         public int Profile_id { get; set; }
         public int Amount { get; set; }
