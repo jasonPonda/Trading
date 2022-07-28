@@ -1,31 +1,21 @@
-﻿namespace Trading.Models
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
+
+namespace Trading.Models
 {
     public class UserModel
     {
+        [Key]
+        [Required]
         public int id;
         public string email;
         public string password;
 
-        public UserModel(int Id, string Email, string Password)
+        public UserModel(int id, string email, string password)
         {
-            id = Id;
-            email = Email;
-            password = Password;
-        }
-
-        public int Id
-        {
-            get { return id; }
-        }
-
-        public string Email
-        {
-            get { return email; }
-        }
-
-        public string Password
-        {
-            get { return password; }
+            this.id = id;
+            this.email = email;
+            this.password = password;
         }
     }
 }

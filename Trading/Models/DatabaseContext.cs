@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Trading.Models
 {
-    public partial class DatabaseContext : IdentityDbContext<IdentityUser>
+    public partial class DatabaseContext : DbContext
     {
         public DatabaseContext()
         {
@@ -37,9 +37,9 @@ namespace Trading.Models
             {
                 entity.HasNoKey();
                 entity.ToTable("User");
-                entity.Property(e => e.Id).HasColumnName("id");
-                entity.Property(e => e.Email).HasColumnName("email");
-                entity.Property(e => e.Password).HasColumnName("password");
+                entity.Property(e => e.id).HasColumnName("id");
+                entity.Property(e => e.email).HasColumnName("email");
+                entity.Property(e => e.password).HasColumnName("password");
             });
 
             modelBuilder.Entity<ProfileModel>(entity =>

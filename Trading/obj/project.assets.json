@@ -172,6 +172,18 @@
           }
         }
       },
+      "Microsoft.Data.Sqlite.Core/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.6"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.Data.Sqlite.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.Data.Sqlite.dll": {}
+        }
+      },
       "Microsoft.EntityFrameworkCore/6.0.7": {
         "type": "package",
         "dependencies": {
@@ -573,6 +585,18 @@
             "assetType": "runtime",
             "rid": "win"
           }
+        }
+      },
+      "SQLitePCLRaw.core/2.0.6": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
         }
       },
       "Swashbuckle.AspNetCore/6.4.0": {
@@ -1298,6 +1322,22 @@
         "runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll",
         "runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll",
         "runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll"
+      ]
+    },
+    "Microsoft.Data.Sqlite.Core/6.0.7": {
+      "sha512": "lB8T+Y/5pMDBf13dGnrQvZ9rfkZrvRY82FgVElWGIuIF3yFwYLR6475U4/IM+TNLPSk8SvTFBqdLN3gOm3suOQ==",
+      "type": "package",
+      "path": "microsoft.data.sqlite.core/6.0.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/net6.0/Microsoft.Data.Sqlite.dll",
+        "lib/net6.0/Microsoft.Data.Sqlite.xml",
+        "lib/netstandard2.0/Microsoft.Data.Sqlite.dll",
+        "lib/netstandard2.0/Microsoft.Data.Sqlite.xml",
+        "microsoft.data.sqlite.core.6.0.7.nupkg.sha512",
+        "microsoft.data.sqlite.core.nuspec"
       ]
     },
     "Microsoft.EntityFrameworkCore/6.0.7": {
@@ -2185,6 +2225,18 @@
         "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.xml",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "SQLitePCLRaw.core/2.0.6": {
+      "sha512": "Vh8n0dTvwXkCGur2WqQTITvk4BUO8i8h9ucSx3wwuaej3s2S6ZC0R7vqCTf9TfS/I4QkXO6g3W2YQIRFkOcijA==",
+      "type": "package",
+      "path": "sqlitepclraw.core/2.0.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/SQLitePCLRaw.core.dll",
+        "sqlitepclraw.core.2.0.6.nupkg.sha512",
+        "sqlitepclraw.core.nuspec"
       ]
     },
     "Swashbuckle.AspNetCore/6.4.0": {
@@ -3564,6 +3616,7 @@
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 6.0.7",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.7",
       "Microsoft.Data.SqlClient >= 4.1.0",
+      "Microsoft.Data.Sqlite.Core >= 6.0.7",
       "Microsoft.EntityFrameworkCore >= 6.0.7",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.7",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.7",
@@ -3621,6 +3674,10 @@
           "Microsoft.Data.SqlClient": {
             "target": "Package",
             "version": "[4.1.0, )"
+          },
+          "Microsoft.Data.Sqlite.Core": {
+            "target": "Package",
+            "version": "[6.0.7, )"
           },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",

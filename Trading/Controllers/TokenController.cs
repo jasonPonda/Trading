@@ -25,9 +25,9 @@ namespace Trading.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(UserModel _userData)
         {
-            if (_userData != null && _userData.Email != null && _userData.Password != null)
+            if (_userData != null && _userData.email != null && _userData.password != null)
             {
-                var user = await GetUser(_userData.Email, _userData.Password);
+                var user = await GetUser(_userData.email, _userData.password);
 
                 if (user != null)
                 {
@@ -36,8 +36,8 @@ namespace Trading.Controllers
                         new Claim(JwtRegisteredClaimNames.Sub, _configuration["Jwt:Subject"]),
                         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                         new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
-                        new Claim("Id", user.Id.ToString()),
-                        new Claim("Email", user.Email)
+                        new Claim("id", user.id.ToString()),
+                        new Claim("email", user.email)
                     };
 #pragma warning restore CS8604 // Existence possible d'un argument de référence null.
 
@@ -67,7 +67,7 @@ namespace Trading.Controllers
         private async Task<UserModel> GetUser(string email, string password)
         {
 #pragma warning disable CS8603 // Existence possible d'un retour de référence null.
-            return await _context.GetUsers().FirstOrDefaultAsync(u => u.Email == email && u.Password == password);
+            return await _context.GetUsers().FirstOrDefaultAsync(u => u.email == email && u.password == password);
 #pragma warning restore CS8603 // Existence possible d'un retour de référence null.
         }
     }
