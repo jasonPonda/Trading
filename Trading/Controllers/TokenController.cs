@@ -36,7 +36,7 @@ namespace Trading.Controllers
                         new Claim(JwtRegisteredClaimNames.Sub, _configuration["Jwt:Subject"]),
                         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                         new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
-                        new Claim("id", user.id.ToString()),
+                        new Claim("Id", user.Id.ToString()),
                         new Claim("email", user.email)
                     };
 #pragma warning restore CS8604 // Existence possible d'un argument de référence null.

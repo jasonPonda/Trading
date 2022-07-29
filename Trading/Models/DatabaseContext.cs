@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Trading.Models;
 
 namespace Trading.Models
 {
@@ -35,9 +36,9 @@ namespace Trading.Models
         {
             modelBuilder.Entity<UserModel>(entity =>
             {
-                entity.HasNoKey();
+                
                 entity.ToTable("User");
-                entity.Property(e => e.id).HasColumnName("id");
+                entity.Property(e => e.Id).HasColumnName("id");
                 entity.Property(e => e.email).HasColumnName("email");
                 entity.Property(e => e.password).HasColumnName("password");
             });
@@ -79,5 +80,7 @@ namespace Trading.Models
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+        public DbSet<Trading.Models.UserModel>? UserModel { get; set; }
     }
 }

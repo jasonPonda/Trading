@@ -103,19 +103,24 @@ namespace Trading.Migrations
 
             modelBuilder.Entity("Trading.Models.UserModel", b =>
                 {
-                    b.Property<string>("Email")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("email");
 
-                    b.Property<string>("Password")
+                    b.Property<string>("password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("password");
 
-                    b.Property<int>("id")
-                        .HasColumnType("int")
-                        .HasColumnName("id");
+                    b.HasKey("Id");
 
                     b.ToTable("User", (string)null);
                 });
